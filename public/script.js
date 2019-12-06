@@ -8,6 +8,8 @@ let lockBoard = false;
 const startButton = document.querySelector('.startButton')
 const restartButton = document.querySelector('.restartButton')
 
+const backFace = document.querySelectorAll('.backFace')
+
 
 // Button that calls the function that restarts the game. 
 
@@ -24,7 +26,6 @@ function restartGame() {
 
 }
 
-
 function startGame() {
     cards.forEach(card => card.addEventListener('click', flipCard))
 }
@@ -32,6 +33,11 @@ function startGame() {
 startButton.addEventListener('click', () => {
     startGame()
 })
+
+// cards.forEach(card, () => {
+//     if (card.classList = 'flip')
+//         console.log('card is flipped')
+// })
 
 
 
@@ -88,6 +94,15 @@ function disableCards() {
 
 
 
+
+
+
+const createMemoryCard = (image, id) => {
+    return `<div class="memory-card" data-icon="${id}">
+      <img class="card-back" src="images/question.png">
+      <img class="card-front" src="${image}" >
+          </div>`;
+};
 
 
 

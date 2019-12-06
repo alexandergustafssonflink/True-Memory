@@ -20,6 +20,10 @@ img {
 
 }
 
+.hidden{
+    display: none;
+}
+
 h1 {
     margin-top: 50px; 
     font-size: 60px;
@@ -76,6 +80,10 @@ h1 {
     height: 100%; 
     backface-visibility: hidden;
 
+}
+
+.backface {
+    /* backface-visibility: hidden; */
 }
 
 .frontface {
