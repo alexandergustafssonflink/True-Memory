@@ -25,6 +25,20 @@ h1 {
     font-size: 60px;
 }
 
+.buttons { 
+    display: flex; 
+    justify-content: space-between;
+    width: 20%; 
+}
+
+.startButton {
+    cursor: pointer;
+}
+
+.restartButton {
+    cursor: pointer;
+}
+
 .memorygame {
     display: flex; 
     flex-wrap: wrap;

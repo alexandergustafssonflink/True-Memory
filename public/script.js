@@ -5,6 +5,35 @@ let hasFlippedCard = false;
 let firstCard, secondCard;
 let lockBoard = false;
 
+const startButton = document.querySelector('.startButton')
+const restartButton = document.querySelector('.restartButton')
+
+
+// Button that calls the function that restarts the game. 
+
+restartButton.addEventListener('click', () => {
+    restartGame();
+})
+
+// Restarts the game 
+
+function restartGame() {
+    cards.forEach(card =>
+        card.classList.remove('flip'));
+    cards.forEach(card => card.addEventListener('click', flipCard))
+
+}
+
+
+function startGame() {
+    cards.forEach(card => card.addEventListener('click', flipCard))
+}
+
+startButton.addEventListener('click', () => {
+    startGame()
+})
+
+
 
 function flipCard() {
     if (lockBoard) return;
@@ -58,7 +87,7 @@ function disableCards() {
 
 
 
-cards.forEach(card => card.addEventListener('click', flipCard))
+
 
 
 
