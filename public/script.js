@@ -18,7 +18,7 @@ const cards = [
         img: 'img/alabama.jpg', id: 'alabama'
     },
     {
-        img: 'img/blood.jpg', id: 'blood'
+        img: 'img/samuel.jpg', id: 'samuel'
     },
     {
         img: 'img/brad.jpg', id: 'brad'
@@ -36,13 +36,13 @@ const cards = [
         img: 'img/gunsout.png', id: 'gunsout'
     },
     {
-        img: 'img/lee-donowitz.jpg', id: 'lee-donowitz'
+        img: 'img/pimp.jpg', id: 'pimp'
     },
     {
         img: 'img/alabama.jpg', id: 'alabama'
     },
     {
-        img: 'img/blood.jpg', id: 'blood'
+        img: 'img/samuel.jpg', id: 'samuel'
     },
     {
         img: 'img/brad.jpg', id: 'brad'
@@ -60,7 +60,7 @@ const cards = [
         img: 'img/gunsout.png', id: 'gunsout'
     },
     {
-        img: 'img/lee-donowitz.jpg', id: 'lee-donowitz'
+        img: 'img/pimp.jpg', id: 'pimp'
     },
 ]
 
