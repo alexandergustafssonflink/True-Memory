@@ -1,14 +1,118 @@
-
-const cards = document.querySelectorAll('.memorycard');
-
 let hasFlippedCard = false;
 let firstCard, secondCard;
 let lockBoard = false;
 
 const startButton = document.querySelector('.startButton')
 const restartButton = document.querySelector('.restartButton')
+const memoryGame = document.querySelector('.memorygame')
 
 const backFace = document.querySelectorAll('.backFace')
+
+
+
+// An array of images
+
+
+const cards = [
+    {
+        img: 'img/alabama.jpg', id: 'alabama'
+    },
+    {
+        img: 'img/blood.jpg', id: 'blood'
+    },
+    {
+        img: 'img/brad.jpg', id: 'brad'
+    },
+    {
+        img: 'img/chris-walken.jpg', id: 'chris-walken'
+    },
+    {
+        img: 'img/clarencedad.jpg', id: 'clarencedad'
+    },
+    {
+        img: 'img/gandolfini.jpg', id: 'gandolfini'
+    },
+    {
+        img: 'img/gunsout.png', id: 'gunsout'
+    },
+    {
+        img: 'img/lee-donowitz.jpg', id: 'lee-donowitz'
+    },
+    {
+        img: 'img/alabama.jpg', id: 'alabama'
+    },
+    {
+        img: 'img/blood.jpg', id: 'blood'
+    },
+    {
+        img: 'img/brad.jpg', id: 'brad'
+    },
+    {
+        img: 'img/chris-walken.jpg', id: 'chris-walken'
+    },
+    {
+        img: 'img/clarencedad.jpg', id: 'clarencedad'
+    },
+    {
+        img: 'img/gandolfini.jpg', id: 'gandolfini'
+    },
+    {
+        img: 'img/gunsout.png', id: 'gunsout'
+    },
+    {
+        img: 'img/lee-donowitz.jpg', id: 'lee-donowitz'
+    },
+]
+
+
+// Helper function to prevent XSS injections
+// Creates an HTML element from string
+
+const stringToHTML = str => {
+    const div = document.createElement("div");
+    div.innerHTML = str;
+    return div.firstChild;
+};
+
+
+// function that sends back a div-element including image tags based on the variables sent in
+
+const createMemoryCard = (img, id) => {
+    return `<div class="memorycard" data-name="${id}">
+      <img class="backface" src="img/true-primary.jpg">
+      <img class="frontface" src="${img}" >
+          </div>`;
+};
+
+
+// Function that generates images from the cards-array by calling the createMemoryCard-function
+
+const generateCards = () => {
+    cards.forEach(card => {
+        const images = createMemoryCard(card.img, card.id);
+        memoryGame.appendChild(stringToHTML(images));
+    });
+};
+
+// Calls the generateCards-function
+
+generateCards();
+
+
+const memoryCards = document.querySelectorAll('.memorycard')
+
+
+// function that shuffles the cards based on the order in flexbox
+
+function shuffle() {
+    memoryCards.forEach(memoryCard => {
+        let randomPosition = Math.floor(Math.random() * 8);
+        memoryCard.style.order = randomPosition;
+    })
+}
+
+
+shuffle();
 
 
 // Button that calls the function that restarts the game. 
@@ -17,29 +121,30 @@ restartButton.addEventListener('click', () => {
     restartGame();
 })
 
-// Restarts the game 
+// Function that estarts the game by removing the flip-class, adding the click-function back and shuffling the cards. 
 
 function restartGame() {
-    cards.forEach(card =>
-        card.classList.remove('flip'));
-    cards.forEach(card => card.addEventListener('click', flipCard))
-
+    memoryCards.forEach(memoryCard =>
+        memoryCard.classList.remove('flip'));
+    memoryCards.forEach(memoryCard => memoryCard.addEventListener('click', flipCard))
+    setTimeout(() => {
+        shuffle(cards)
+    }, 500);
 }
+
+// Function that adds the ability to click the cards and therefore starts the game
 
 function startGame() {
-    cards.forEach(card => card.addEventListener('click', flipCard))
+    memoryCards.forEach(memoryCard => memoryCard.addEventListener('click', flipCard))
 }
+
+// Button that calls the startGame-function
 
 startButton.addEventListener('click', () => {
     startGame()
 })
 
-// cards.forEach(card, () => {
-//     if (card.classList = 'flip')
-//         console.log('card is flipped')
-// })
-
-
+// Function that flips card and checks if theres a match using the checkForMatch-function
 
 function flipCard() {
     if (lockBoard) return;
@@ -59,12 +164,15 @@ function flipCard() {
     }
 }
 
+// Function that resets the board by resetting the values of flipped cards
+
 function resetBoard() {
     [hasFlippedCard, lockBoard] = [false, false];
     [firstCard, secondCard] = [null, null];
 }
 
 
+// Function that checks for match by comparing dataset.name of the flipped cards. If they match, it calls the disableCards-function leaving them flipped. If the cards doesn't match it calls the unFlipCards-function.
 
 function checkForMatch() {
     if (firstCard.dataset.name === secondCard.dataset.name) {
@@ -74,6 +182,8 @@ function checkForMatch() {
         unflipCards()
     }
 }
+
+// Function that removes the "flip"-class and calls the resetBoard-function
 
 function unflipCards() {
     lockBoard = true;
@@ -86,83 +196,9 @@ function unflipCards() {
     }, 1500)
 }
 
+// Function that removes the click-eventlistener leaving the card with the current class. 
+
 function disableCards() {
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);
 }
-
-
-
-
-
-
-
-const createMemoryCard = (image, id) => {
-    return `<div class="memory-card" data-icon="${id}">
-      <img class="card-back" src="images/question.png">
-      <img class="card-front" src="${image}" >
-          </div>`;
-};
-
-
-
-
-
-
-
-
-
-
-
-// function createCards() => {
-
-// }
-
-// cards.forEach(card =>
-//     document.createElement(div);
-//     div.innerHTML()
-
-
-
-// const div = document.createElement("div");
-
-
-
-// const cards = [
-//     {
-//         img: 'img/alabama.jpg'
-//     },
-//     {
-//         img: 'img/blood.jpg'
-//     },
-//     {
-//         img: 'img/brad.jpg'
-//     },
-//     {
-//         img: 'img/chris-walken.jpg'
-//     },
-//     {
-//         img: 'img/clarencedad.jpg'
-//     },
-//     {
-//         img: 'img/gandolfini.jpg'
-//     },
-//     {
-//         img: 'img/gunsout.jpg'
-//     },
-//     {
-//         img: 'img/lee-donowitz'
-//     },
-//     {
-//         img: 'img/pimp.jpg'
-//     },
-//     {
-//         img: 'img/police.jpg'
-//     },
-//     {
-//         img: 'img/samuel.jpg'
-//     },
-//     {
-//         img: 'img/true-primary.jpg'
-//     }
-// ]
