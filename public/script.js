@@ -62,31 +62,7 @@ const cards = [
 ]
 
 
-const quotes = [
-    {
-        quote1: "I haven't killed anybody...since 1984."
-    },
-    {
-        quote2: "Now I know I'm pretty, but I'm not as pretty as a pair of titties."
-    },
-    {
-        quote3: "You're an actor. Act, motherfucker."
-    },
-    {
-        quote4: "Hey! Get some beer and some cleaning products!"
-    },
-    {
-        quote5: "She a four alarm fire or what?"
-    }
-
-]
-
-console.log(quotes)
-
-
-// Helper function to prevent XSS injections
 // Creates an HTML element from string
-
 const stringToHTML = str => {
     const div = document.createElement("div");
     div.innerHTML = str;
@@ -95,7 +71,6 @@ const stringToHTML = str => {
 
 
 // function that sends back a div-element including image tags based on the variables sent in
-
 const createMemoryCard = (img, id) => {
     return `<div class="memorycard" data-name="${id}">
       <img class="backface" src="img/true-primary.jpg">
@@ -105,7 +80,6 @@ const createMemoryCard = (img, id) => {
 
 
 // Function that generates images from the cards-array by calling the createMemoryCard-function
-
 const generateCards = () => {
     cards.forEach(card => {
         const images = createMemoryCard(card.img, card.id);
@@ -114,7 +88,6 @@ const generateCards = () => {
 };
 
 // Calls the generateCards-function
-
 generateCards();
 
 
@@ -122,7 +95,6 @@ const memoryCards = document.querySelectorAll('.memorycard')
 
 
 // function that shuffles the cards based on the order in flexbox
-
 function shuffle() {
     memoryCards.forEach(memoryCard => {
         let randomPosition = Math.floor(Math.random() * 8);
@@ -135,13 +107,11 @@ shuffle();
 
 
 // Button that calls the function that restarts the game. 
-
 restartButton.addEventListener('click', () => {
     restartGame();
 })
 
 // Function that estarts the game by removing the flip-class, adding the click-function back and shuffling the cards. 
-
 function restartGame() {
     memoryCards.forEach(memoryCard =>
         memoryCard.classList.remove('flip'));
@@ -152,19 +122,16 @@ function restartGame() {
 }
 
 // Function that adds the ability to click the cards and therefore starts the game
-
 function startGame() {
     memoryCards.forEach(memoryCard => memoryCard.addEventListener('click', flipCard))
 }
 
 // Button that calls the startGame-function
-
 startButton.addEventListener('click', () => {
     startGame()
 })
 
 // Function that flips card and checks if theres a match using the checkForMatch-function
-
 function flipCard() {
     if (lockBoard) return;
     if (this === firstCard) return;
@@ -184,7 +151,6 @@ function flipCard() {
 }
 
 // Function that resets the board by resetting the values of flipped cards
-
 function resetBoard() {
     [hasFlippedCard, lockBoard] = [false, false];
     [firstCard, secondCard] = [null, null];
@@ -192,12 +158,9 @@ function resetBoard() {
 
 
 // Function that checks for match by comparing dataset.name of the flipped cards. If they match, it calls the disableCards-function leaving them flipped. If the cards doesn't match it calls the unFlipCards-function.
-
 function checkForMatch() {
     if (firstCard.dataset.name === secondCard.dataset.name) {
         disableCards()
-
-        window.alert(quotes.firstChild)
         // setTimeout(() => {
         //     quoteDiv = document.createElement = "div"
         //     quoteDiv.textContent = "HJEHJE"
@@ -209,7 +172,6 @@ function checkForMatch() {
 }
 
 // Function that removes the "flip"-class and calls the resetBoard-function
-
 function unflipCards() {
     lockBoard = true;
 
@@ -222,7 +184,6 @@ function unflipCards() {
 }
 
 // Function that removes the click-eventlistener leaving the card with the current class. 
-
 function disableCards() {
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);

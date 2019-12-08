@@ -1,4 +1,4 @@
-# True Romance - The True Memory Game!
+# True Memory Game!
 <img src="https://media.giphy.com/media/QZB1utFhw8sxO/giphy.gif" width="100%">
 
 ## Description
