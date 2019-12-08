@@ -92,16 +92,19 @@ h1 {
 
 .frontface {
     transform: rotateY(180deg); 
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
+   
 }
 
 .frontface, 
 .backface {
     position: absolute; 
     width: 100%;
-    height: 100%; 
+    height: 100%;  
     opacity: 0.99;
+    backface-visibility: hidden;
 
 }
+  .backface {
+    opacity: 1;
+  }
 

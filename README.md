@@ -16,7 +16,7 @@ You know the game, now play!
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Testers
-- [XXX  XXX](https://)
+- [Andreas Lindberg](https://github.com/oaflindberg)
 -
 -
 
