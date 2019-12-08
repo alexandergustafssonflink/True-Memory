@@ -9,10 +9,7 @@ const memoryGame = document.querySelector('.memorygame')
 const backFace = document.querySelectorAll('.backFace')
 
 
-
 // An array of images
-
-
 const cards = [
     {
         img: 'img/alabama.jpg', id: 'alabama'
@@ -63,6 +60,28 @@ const cards = [
         img: 'img/pimp.jpg', id: 'pimp'
     },
 ]
+
+
+const quotes = [
+    {
+        quote1: "I haven't killed anybody...since 1984."
+    },
+    {
+        quote2: "Now I know I'm pretty, but I'm not as pretty as a pair of titties."
+    },
+    {
+        quote3: "You're an actor. Act, motherfucker."
+    },
+    {
+        quote4: "Hey! Get some beer and some cleaning products!"
+    },
+    {
+        quote5: "She a four alarm fire or what?"
+    }
+
+]
+
+console.log(quotes)
 
 
 // Helper function to prevent XSS injections
@@ -177,6 +196,12 @@ function resetBoard() {
 function checkForMatch() {
     if (firstCard.dataset.name === secondCard.dataset.name) {
         disableCards()
+
+        window.alert(quotes.firstChild)
+        // setTimeout(() => {
+        //     quoteDiv = document.createElement = "div"
+        //     quoteDiv.textContent = "HJEHJE"
+        // }, 500);
     }
     else {
         unflipCards()
@@ -193,7 +218,7 @@ function unflipCards() {
         secondCard.classList.remove('flip');
 
         resetBoard();
-    }, 1500)
+    }, 1000)
 }
 
 // Function that removes the click-eventlistener leaving the card with the current class. 

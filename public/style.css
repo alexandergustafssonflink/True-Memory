@@ -31,15 +31,33 @@ h1 {
 .buttons { 
     display: flex; 
     justify-content: space-between;
-    width: 20%; 
 }
 
 .startButton {
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    margin-right: 30px; 
 }
 
 .restartButton {
-    cursor: pointer;
+    cursor: pointer; 
+    display:Flex; 
+    justify-content: center;
+    margin-left: 30px; 
+    
+}
+
+.startButton :hover {
+    color: white;
+    background-color: black; 
+
+}
+
+.restartButton:hover {
+    color: white;
+    background-color: black; 
+    
 }
 
 .memorygame {
@@ -57,9 +75,8 @@ h1 {
     transform-style: preserve-3d;
     transition: transform .5s;
     margin: 5px; 
-    width: 150px; 
-    height: 150px; 
-    position: relative; 
+    width: 200px; 
+    height: 200px; 
 }
 
 .memorycard.flip {
@@ -74,9 +91,13 @@ h1 {
 
 
 .frontface {
-    transform: rotateY(180deg);
-    -webkit-backface-visibility: hidden; 
+    transform: rotateY(180deg); 
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.backface {
+  
 }
 
 
@@ -85,6 +106,6 @@ h1 {
     position: absolute; 
     width: 100%;
     height: 100%; 
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden; 
+
 }
+
