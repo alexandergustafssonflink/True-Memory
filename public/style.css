@@ -1,26 +1,24 @@
 * {
-    padding: 0; 
-    margin: 0; 
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
 }
 
 body {
-    height: 100vh; 
-    font-family: 'Bangers', cursive;
-    display: flex; 
+    height: 100vh;
+    font-family: "Bangers", cursive;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
 
 img {
-  width: 100%;
-  height: 100%; 
-
+    width: 100%;
+    height: 100%;
 }
 
-.hidden{
+.hidden {
     display: none;
 }
 
@@ -28,8 +26,8 @@ h1 {
     font-size: 60px;
 }
 
-.buttons { 
-    display: flex; 
+.buttons {
+    display: flex;
     justify-content: space-between;
 }
 
@@ -37,74 +35,66 @@ h1 {
     cursor: pointer;
     display: flex;
     justify-content: center;
-    margin-right: 30px; 
+    margin-right: 30px;
 }
 
 .restartButton {
-    cursor: pointer; 
-    display:Flex; 
+    cursor: pointer;
+    display: Flex;
     justify-content: center;
-    margin-left: 30px; 
-    
+    margin-left: 30px;
 }
 
 .startButton :hover {
     color: white;
-    background-color: black; 
-
+    background-color: black;
 }
 
 .restartButton:hover {
     color: white;
-    background-color: black; 
-    
+    background-color: black;
 }
 
 .memorygame {
-    display: flex; 
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     perspective: 1000px;
     position: relative;
-    width: 90%; 
+    width: 90%;
 }
 
 .memorycard {
-    border: 2px solid black; 
+    border: 2px solid black;
     transform: scale(1);
     transform-style: preserve-3d;
-    transition: transform .5s;
-    margin: 5px; 
-    width: 200px; 
-    height: 200px; 
+    transition: transform 0.5s;
+    margin: 5px;
+    width: 200px;
+    height: 200px;
 }
 
 .memorycard.flip {
-    transform: rotateY(180deg)
+    transform: rotateY(180deg);
 }
 
 .memorycard:active {
-    transform: scale(.97);
-    transition: transform .2s; 
-
+    transform: scale(0.97);
+    transition: transform 0.2s;
 }
-
 
 .frontface {
-    transform: rotateY(180deg); 
-   
+    transform: rotateY(180deg);
 }
 
-.frontface, 
+.frontface,
 .backface {
-    position: absolute; 
+    position: absolute;
     width: 100%;
-    height: 100%;  
-    opacity: 0.99;
+    height: 100%;
+    border: 1px solid black;
     backface-visibility: hidden;
-
 }
-  .backface {
+.backface {
     opacity: 1;
-  }
-
+}
